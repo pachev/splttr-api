@@ -18,6 +18,6 @@ from django.contrib import admin
 from rest_framework.authtoken import views as authview
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^login/', authview.obtain_auth_token),
+    url(r'^admin', admin.site.urls),
+    url(r'^login', authview.obtain_auth_token),
 ]
