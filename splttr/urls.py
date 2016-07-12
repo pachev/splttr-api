@@ -17,7 +17,6 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
-from rest_framework.authtoken import views as authview
 from splttr import views
 
 router = routers.DefaultRouter()
@@ -25,7 +24,6 @@ router.register(r'users', views.UserViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
-    url(r'^users/login', authview.obtain_auth_token),
     url(r'^admin', admin.site.urls),
     url(r'^docs/', include('rest_framework_swagger.urls')),
 ]

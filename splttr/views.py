@@ -1,23 +1,11 @@
 from rest_framework import status, viewsets
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, list_route
 from rest_framework.response import Response
+from rest_framework.authtoken import views as authview
 from django.contrib.auth.models import User, Group
 
 from splttr.serializers import UserSerializer, GroupSerializer
 
-
-@api_view(['POST'])
-def register_user(request):
-    serialized = UserSerializer(data=request.DATA)
-    if serialized.is_valid():
-        User.objects.create_user(
-            serialized.init_data['email'],
-            serialized.init_data['username'],
-            serialized.init_data['password']
-        )
-        return Response(serialized.data, status=status.HTTP_201_CREATED)
-    else:
-        return Response(serialized._errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -26,6 +14,20 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
+
+    @list_route(methods=['POST'])
+    def login(self, request):
+        """
+        User login/ Aquire token
+        ---
+        omit_serializer: true
+        parameters:
+            - name: username
+              type: string
+            - name: password
+              type: string
+        """
+        return authview.obtain_auth_token(request)
 
 
 class GroupViewSet(viewsets.ModelViewSet):
