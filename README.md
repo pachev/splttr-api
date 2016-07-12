@@ -46,3 +46,6 @@ Splttr-api stores and manages the backend components to the [Splltr app](http://
 * PyYAML
 
 These are installed when the `pip install` command is ran.
+
+[1]: https://pip.pypa.io/en/latest/installing/
+[2]: https://docs.python.org/3/using/scripts.html
