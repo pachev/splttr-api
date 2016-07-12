@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'xfm3-wis17$y(ahi8@73)aj7%k^a0#rk3i5*u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False if os.getenv('DEBUG') is not None else True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    'rest_framework_docs',
+    'rest_framework_swagger',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -125,6 +125,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Django Rest Framework Docs
-REST_FRAMEWORK_DOCS = {
-    'HIDE_DOCS': os.environ.get('HIDE_DRFDOCS', False)
+SWAGGER_SETTINGS = {
+    'api_version': '0.1',
+    'info': {
+        'contact': 'dave.rodri01@gmail.com',
+        'description': 'Split bills with Splttr',
+        'title': 'Splttr'
+    }
 }

@@ -27,5 +27,5 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^users/login', authview.obtain_auth_token),
     url(r'^admin', admin.site.urls),
-    url(r'^docs', include('rest_framework_docs.urls')),
+    url(r'^docs/', include('rest_framework_swagger.urls')),
 ]

@@ -5,6 +5,7 @@ from django.contrib.auth.models import User, Group
 
 from splttr.serializers import UserSerializer, GroupSerializer
 
+
 @api_view(['POST'])
 def register_user(request):
     serialized = UserSerializer(data=request.DATA)
