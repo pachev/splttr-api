@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'xfm3-wis17$y(ahi8@73)aj7%k^a0#rk3i5*u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False if os.getenv('DEBUG') is not None else True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
