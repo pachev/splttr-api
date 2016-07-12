@@ -15,11 +15,11 @@ Then from the root of the project run:
 2. `source venv/bin/activate` - Load the environment
 3. `pip install -r requirements.txt` - Install dependencies
 
-To run the the server use the following command:
+To run the the server use the following commands:
+1. `python manage.py migrate`
+2. `python manage.py runserver`
 
-`python manage.py runserver`
-
-You can provide a port after the `runserver`. However, the default is 8080. 
+You can provide a port after the `runserver`. However, the default is 8000. 
 
 This project can also be ran using docker. Docker is a container system meant to run an application with the same 
 environment it was built in. This ensures dependencies remain the same on every system. To get started, install the 
@@ -46,3 +46,6 @@ Splttr-api stores and manages the backend components to the [Splltr app](http://
 * PyYAML
 
 These are installed when the `pip install` command is ran.
+
+[1]: https://pip.pypa.io/en/latest/installing/
+[2]: https://docs.python.org/3/using/scripts.html
